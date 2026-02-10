@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Skeletonable">
+        <attr name="skeletonRadius" format="dimension" />
+        <attr name="skeletonBaseColor" format="color" />
+        <attr name="skeletonHighlightColor" format="color" />
+    </declare-styleable>
+</resources>
