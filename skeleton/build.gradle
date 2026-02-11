@@ -45,6 +45,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
 
+
 afterEvaluate {
     publishing {
         publications {
@@ -53,6 +54,26 @@ afterEvaluate {
                 groupId = 'cn.jingzhuan.lib'
                 artifactId = 'skeleton'
                 version = '1.0.0'
+            }
+        }
+        repositories {
+            def properties = new Properties()
+            def localPropertiesFile = project.rootProject.file('local.properties')
+            if (localPropertiesFile.exists()) {
+                properties.load(localPropertiesFile.newDataInputStream())
+            }
+
+            if (properties.getProperty("maven.url")) {
+                maven {
+                    allowInsecureProtocol = true
+                    url = properties.getProperty("maven.url")
+                    if (properties.getProperty("maven.username") && properties.getProperty("maven.password")) {
+                        credentials {
+                            username = properties.getProperty("maven.username")
+                            password = properties.getProperty("maven.password")
+                        }
+                    }
+                }
             }
         }
     }
