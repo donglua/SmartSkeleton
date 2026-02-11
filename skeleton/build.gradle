@@ -75,6 +75,16 @@ afterEvaluate {
                     }
                 }
             }
+
+            // GitHub Packages
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/donglua/SmartSkeleton")
+                credentials {
+                    username = System.getenv("GITHUB_ACTOR") ?: properties.getProperty("gpr.user", "")
+                    password = System.getenv("GITHUB_TOKEN") ?: properties.getProperty("gpr.key", "")
+                }
+            }
         }
     }
 }
