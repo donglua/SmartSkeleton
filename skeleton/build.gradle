@@ -53,7 +53,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'cn.jingzhuan.lib'
                 artifactId = 'skeleton'
-                version = '1.0.1'
+                version = project.findProperty("VERSION_NAME") ?: "1.0.1"
             }
         }
         repositories {

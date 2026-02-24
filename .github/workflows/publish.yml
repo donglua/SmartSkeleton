@@ -24,6 +24,9 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Publish package
-        run: ./gradlew :skeleton:publishReleasePublicationToGitHubPackagesRepository
+        run: |
+          VERSION="${{ github.event.release.tag_name }}"
+          VERSION="${VERSION#v}"
+          ./gradlew :skeleton:publishReleasePublicationToGitHubPackagesRepository -PVERSION_NAME="$VERSION"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
