@@ -54,29 +54,10 @@ class SkeletonDrawable(
         if (boundsRect.isEmpty) return
 
         val width = boundsRect.width()
-        // Map 0..1 to -width..width
-        // But to make it smooth across the width, we usually translate from -width to width.
-        // Let's recheck the logic.
-        // 0 -> -width
-        // 1 -> +width (or 2*width if we want full traverse)
 
-        // Let's say gradient width is `width`.
-        // We want the highlight (center) to move from left to right.
-        // The highlight is at 0.5 * width in the gradient definition.
-        // If translate is 0, highlight is at 0.5 * width.
-        // If translate is -width/2, highlight is at 0.
-        // If translate is width/2, highlight is at width.
-
-        // So we want translation from -width to width?
-        // Actually, the gradient is defined from 0 to width.
-        // To animate, we translate the shader.
-        // If we translate by T, the color at X becomes the color at X-T in the original gradient?
-        // Let's just use standard logic: translate from -width to width.
-
-        val translate = (translateX * 3 * width) - width // Move from -width to 2*width for a wider sweep?
-        // Or simply:
-        // gradient is 0..width.
-        // We want to shift it so it passes through the view.
+        // Translate the shader from -width to 2*width to ensure the highlight
+        // (centered at 0.5*width in the shader) fully traverses the view.
+        val translate = (translateX * 3 * width) - width
 
         gradientMatrix.setTranslate(translate, 0f)
         paint.shader?.setLocalMatrix(gradientMatrix)
