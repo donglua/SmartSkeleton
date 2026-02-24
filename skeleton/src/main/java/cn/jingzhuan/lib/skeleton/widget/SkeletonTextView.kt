@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.util.TypedValue
 import androidx.appcompat.widget.AppCompatTextView
 import cn.jingzhuan.lib.skeleton.R
 import cn.jingzhuan.lib.skeleton.SkeletonDrawable
@@ -22,8 +23,13 @@ class SkeletonTextView @JvmOverloads constructor(
     private var originalTextColor: Int = 0
 
     init {
+        val defaultRadius = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            8f,
+            resources.displayMetrics
+        )
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.Skeletonable)
-        skeletonCornerRadius = typedArray.getDimension(R.styleable.Skeletonable_skeletonRadius, 8f)
+        skeletonCornerRadius = typedArray.getDimension(R.styleable.Skeletonable_skeletonRadius, defaultRadius)
         skeletonBaseColor = typedArray.getColor(R.styleable.Skeletonable_skeletonBaseColor, -0x1f1f20)
         skeletonHighlightColor = typedArray.getColor(R.styleable.Skeletonable_skeletonHighlightColor, -0x111112)
         typedArray.recycle()

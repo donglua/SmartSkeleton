@@ -1,6 +1,7 @@
 package cn.jingzhuan.lib.skeleton
 
 import android.graphics.drawable.Drawable
+import android.util.TypedValue
 import android.view.View
 
 fun View.asSkeleton(show: Boolean, radius: Float = 8f) {
@@ -11,7 +12,12 @@ fun View.asSkeleton(show: Boolean, radius: Float = 8f) {
         // Save original background
         setTag(R.id.skeleton_original_background, background)
 
-        val skeletonDrawable = SkeletonDrawable(cornerRadius = radius)
+        val radiusPx = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            radius,
+            resources.displayMetrics
+        )
+        val skeletonDrawable = SkeletonDrawable(cornerRadius = radiusPx)
         background = skeletonDrawable
         skeletonDrawable.start()
 
