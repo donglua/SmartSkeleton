@@ -18,7 +18,7 @@ A lightweight Android skeleton screen library with built-in shimmer animation. V
 
 ```groovy
 dependencies {
-    implementation 'cn.jingzhuan.lib:skeleton:1.0.1'
+    implementation 'cn.jingzhuan.lib:skeleton:1.0.2'
 }
 ```
 
