@@ -27,6 +27,10 @@ class SkeletonDrawable(
     private var valueAnimator: ValueAnimator? = null
     private var translateX = 0f
 
+    private val colors = intArrayOf(baseColor, highlightColor, baseColor)
+    private val positions = floatArrayOf(0.25f, 0.5f, 0.75f)
+    private var lastWidth = -1f
+
     init {
         paint.style = Paint.Style.FILL
     }
@@ -41,10 +45,13 @@ class SkeletonDrawable(
         if (boundsRect.isEmpty) return
 
         val width = boundsRect.width()
+        if (width == lastWidth && paint.shader != null) return
+        lastWidth = width
+
         val gradient = LinearGradient(
             0f, 0f, width, 0f,
-            intArrayOf(baseColor, highlightColor, baseColor),
-            floatArrayOf(0.25f, 0.5f, 0.75f),
+            colors,
+            positions,
             Shader.TileMode.CLAMP
         )
         paint.shader = gradient
