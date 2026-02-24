@@ -1,5 +1,9 @@
 # SmartSkeleton
 
+<div align="center">
+  <img src="preview.gif" alt="SmartSkeleton Demo" width="300" />
+</div>
+
 A lightweight Android skeleton screen library with built-in shimmer animation. Views automatically show skeleton loading state and hide it when content is set.
 
 ## Features
