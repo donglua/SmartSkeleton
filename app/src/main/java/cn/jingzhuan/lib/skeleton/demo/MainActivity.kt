@@ -29,8 +29,8 @@ class MainActivity : AppCompatActivity() {
         // Simulate network request
         Handler(Looper.getMainLooper()).postDelayed({
             // Update data
-            tvTitle.text = "Smart Skeleton Library"
-            tvDescription.text = "A lightweight Android library for built-in skeleton loading state."
+            tvTitle.text = getString(R.string.demo_title)
+            tvDescription.text = getString(R.string.demo_description)
 
             // For ImageView, we set a drawable
             ivAvatar.setImageDrawable(ColorDrawable(Color.BLUE)) // Simulate an image

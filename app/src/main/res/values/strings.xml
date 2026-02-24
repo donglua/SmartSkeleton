@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">SmartSkeleton Demo</string>
+    <string name="demo_title">Smart Skeleton Library</string>
+    <string name="demo_description">A lightweight Android library for built-in skeleton loading state.</string>
+    <string name="extension_test">Extension Test</string>
+</resources>
