@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable
 import android.util.TypedValue
 import android.view.View
 
-fun View.asSkeleton(show: Boolean, radius: Float = 8f) {
+fun View.asSkeleton(show: Boolean, radius: Float = 4f) {
     val isCurrentlyShown = getTag(R.id.skeleton_is_shown) as? Boolean ?: false
 
     if (show && !isCurrentlyShown) {

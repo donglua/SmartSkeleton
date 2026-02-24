@@ -23,7 +23,7 @@ class SkeletonImageView @JvmOverloads constructor(
     init {
         val defaultRadius = TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP,
-            8f,
+            4f,
             resources.displayMetrics
         )
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.Skeletonable)

@@ -60,7 +60,7 @@ myView.asSkeleton(false)  // hide
 
 | Attribute | Format | Default | Description |
 |---|---|---|---|
-| `skeletonRadius` | dimension | `8dp` | Corner radius |
+| `skeletonRadius` | dimension | `4dp` | Corner radius |
 | `skeletonBaseColor` | color | `#E0E0E0` | Base color |
 | `skeletonHighlightColor` | color | `#EEEEEE` | Shimmer highlight color |
 
