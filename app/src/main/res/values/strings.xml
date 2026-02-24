@@ -3,4 +3,14 @@
     <string name="demo_title">Smart Skeleton Library</string>
     <string name="demo_description">A lightweight Android library for built-in skeleton loading state.</string>
     <string name="extension_test">Extension Test</string>
+
+    <string name="section_profile">Profile</string>
+    <string name="profile_name">John Doe</string>
+    <string name="profile_bio">Software Engineer at Tech Corp. Loves open source and coffee.</string>
+
+    <string name="section_news">Latest News</string>
+    <string name="news_article_title">Android 14 is here!</string>
+    <string name="news_article_snippet">Discover the new features and improvements in the latest Android release, focusing on performance, privacy, and customization.</string>
+
+    <string name="refresh_content_description">Refresh content</string>
 </resources>
