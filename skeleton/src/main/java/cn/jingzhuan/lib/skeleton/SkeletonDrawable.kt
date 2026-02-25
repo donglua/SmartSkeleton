@@ -15,8 +15,8 @@ import android.graphics.drawable.Drawable
 import android.view.animation.LinearInterpolator
 
 class SkeletonDrawable(
-    private val baseColor: Int = 0xFFE0E0E0.toInt(),
-    private val highlightColor: Int = 0xFFEEEEEE.toInt(),
+    private val baseColor: Int = Skeletonable.DEFAULT_BASE_COLOR,
+    private val highlightColor: Int = Skeletonable.DEFAULT_HIGHLIGHT_COLOR,
     private val cornerRadius: Float = 0f,
     private val shimmerDuration: Long = 1000L
 ) : Drawable(), Animatable {

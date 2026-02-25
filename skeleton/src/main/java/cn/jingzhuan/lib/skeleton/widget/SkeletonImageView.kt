@@ -15,21 +15,21 @@ class SkeletonImageView @JvmOverloads constructor(
 
     override var isSkeletonShown: Boolean = false
     override var skeletonCornerRadius: Float = 8f
-    private var skeletonBaseColor: Int = -0x1f1f20
-    private var skeletonHighlightColor: Int = -0x111112
+    private var skeletonBaseColor: Int = Skeletonable.DEFAULT_BASE_COLOR
+    private var skeletonHighlightColor: Int = Skeletonable.DEFAULT_HIGHLIGHT_COLOR
 
     private var originalBackground: Drawable? = null
 
     init {
         val defaultRadius = TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP,
-            4f,
+            Skeletonable.DEFAULT_CORNER_RADIUS_DP,
             resources.displayMetrics
         )
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.Skeletonable)
         skeletonCornerRadius = typedArray.getDimension(R.styleable.Skeletonable_skeletonRadius, defaultRadius)
-        skeletonBaseColor = typedArray.getColor(R.styleable.Skeletonable_skeletonBaseColor, -0x1f1f20)
-        skeletonHighlightColor = typedArray.getColor(R.styleable.Skeletonable_skeletonHighlightColor, -0x111112)
+        skeletonBaseColor = typedArray.getColor(R.styleable.Skeletonable_skeletonBaseColor, Skeletonable.DEFAULT_BASE_COLOR)
+        skeletonHighlightColor = typedArray.getColor(R.styleable.Skeletonable_skeletonHighlightColor, Skeletonable.DEFAULT_HIGHLIGHT_COLOR)
         typedArray.recycle()
 
         if (drawable == null) {
