@@ -19,6 +19,7 @@ class SkeletonImageView @JvmOverloads constructor(
     private var skeletonHighlightColor: Int = -0x111112
 
     private var originalBackground: Drawable? = null
+    private var cachedSkeletonDrawable: SkeletonDrawable? = null
 
     init {
         val defaultRadius = TypedValue.applyDimension(
@@ -45,13 +46,15 @@ class SkeletonImageView @JvmOverloads constructor(
 
         super.setImageDrawable(null)
 
-        val skeletonDrawable = SkeletonDrawable(
-            baseColor = skeletonBaseColor,
-            highlightColor = skeletonHighlightColor,
-            cornerRadius = skeletonCornerRadius
-        )
-        background = skeletonDrawable
-        skeletonDrawable.start()
+        if (cachedSkeletonDrawable == null) {
+            cachedSkeletonDrawable = SkeletonDrawable(
+                baseColor = skeletonBaseColor,
+                highlightColor = skeletonHighlightColor,
+                cornerRadius = skeletonCornerRadius
+            )
+        }
+        background = cachedSkeletonDrawable
+        cachedSkeletonDrawable?.start()
     }
 
     override fun hideSkeleton() {
