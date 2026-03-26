@@ -79,10 +79,4 @@ class SkeletonImageView @JvmOverloads constructor(
             }
         }
     }
-
-    fun bindImage(url: String?) {
-        if (url.isNullOrEmpty()) {
-            showSkeleton()
-        }
-    }
 }
