@@ -12,12 +12,16 @@ fun View.asSkeleton(show: Boolean, radius: Float = 4f) {
         // Save original background
         setTag(R.id.skeleton_original_background, background)
 
-        val radiusPx = TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP,
-            radius,
-            resources.displayMetrics
-        )
-        val skeletonDrawable = SkeletonDrawable(cornerRadius = radiusPx)
+        var skeletonDrawable = getTag(R.id.skeleton_cached_drawable) as? SkeletonDrawable
+        if (skeletonDrawable == null) {
+            val radiusPx = TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                radius,
+                resources.displayMetrics
+            )
+            skeletonDrawable = SkeletonDrawable(cornerRadius = radiusPx)
+            setTag(R.id.skeleton_cached_drawable, skeletonDrawable)
+        }
         background = skeletonDrawable
         skeletonDrawable.start()
 
