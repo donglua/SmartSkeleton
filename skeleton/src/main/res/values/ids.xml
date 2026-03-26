@@ -2,4 +2,5 @@
 <resources>
     <item name="skeleton_original_background" type="id" />
     <item name="skeleton_is_shown" type="id" />
+    <item name="skeleton_cached_drawable" type="id" />
 </resources>
