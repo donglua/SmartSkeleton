@@ -90,7 +90,7 @@ class SkeletonDrawable(
             repeatCount = ValueAnimator.INFINITE
             interpolator = LinearInterpolator()
             addUpdateListener {
-                translateX = it.animatedValue as Float
+                translateX = it.animatedFraction
                 invalidateSelf()
             }
             start()
